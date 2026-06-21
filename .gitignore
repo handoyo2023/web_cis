@@ -1,1 +1,15 @@
 *.zip
+
+# Local workspace and design exploration
+.stitch/
+.tmp_*/
+
+# Reference/source documents kept outside the tracked web app
+CIS COMPRO REV-3.pdf
+CIS COMPRO rev-6.pdf
+CIS_Compro_Final.pdf
+compro/
+
+# Local-only duplicate assets
+web/public/assets/logo besar.png
+web/public/assets/logo-besar.png
