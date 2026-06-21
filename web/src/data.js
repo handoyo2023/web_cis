@@ -360,7 +360,7 @@ export const deliverItems = [
 
 export const serviceBlocks = [
   {
-    eyebrow: "Intelligent Robotics",
+    eyebrow: "",
     title: "Transforming Operations Through Intelligent Robotics",
     description:
       "CIS mengorkestrasi pemanfaatan robotik sebagai bagian dari transformasi operasional untuk menghasilkan kinerja bisnis yang lebih optimal dan berkelanjutan.",
@@ -404,14 +404,6 @@ export const serviceBlocks = [
           "Memastikan manfaat berkelanjutan melalui monitoring, evaluasi, dan perbaikan berkelanjutan.",
         icon: TrendingUp,
       },
-    ],
-    capabilityLabel: "Robotics Capabilities",
-    points: [
-      "Autonomous Mobile Robot (AMR) untuk transportasi & material handling",
-      "Industrial Robotics untuk produksi, perakitan & handling",
-      "Smart Intralogistics Solutions untuk sistem pergudangan & distribusi cerdas",
-      "AI-based Vision & Intelligent Automation",
-      "System Integration Strategy dengan ERP, WMS, MES, IoT",
     ],
     secondaryLabel: "Industries We Serve",
     secondaryItems: [
@@ -602,11 +594,14 @@ export const teamMembers = [
  { name: "S Bratakusuma SE, MAk. CRP, CAFM"  ,    role: "Director of Finance Risk and Audit Governance", },
   { name: "Edy San Long Lest, Aj. Ak, SE, MM"  ,    role: "Finance Accounting & Tax Director", },
     { name: "H. Gunawan, MMktg" ,    role: "Director of Strategic Communication",  },
-      { name: "Iwan Kurniawan, A.Md.T" ,    role: "Director of Industrial Automation & Technology Transformation | Certified Onshape CAD System",  },
+      { name: "Iwan Kurniawan, A.Md.T , COP" ,    role: "Director of Industrial Automation & Technology Transformation",  },
   { name: "Helmi F Wandara, S.Mn., Askom, CMT BNSP, CPHCM, HRBP, CCP, CFP" ,    role: "Director of Learning & Business Transformation",  },
  
   { name: "A Kusuma L, S.Kom, FLMI, AFSI, ACS, ARA" ,    role: "Application & Control General Manager",  },
-  { name: "H Muamar, A.Md.T"  ,    role: "IT & Cyber Dev General Manager | Certified BNSP Programmer", },
+  {
+    name: "H Muamar, A.Md.T ,PRG BNSP, CCNA",
+    role: "IT & Cyber Dev General Manager", 
+  },
   { name: "Cynthia, S.I.Kom"  ,    role: "Business Operations General Manager", },
   { name: "Atika, S.I.Kom"  ,    role: "Head of Operational Excellence", },
   { name: "Michella, S.H"  ,    role: "Head of Integrated Operations", },

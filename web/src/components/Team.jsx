@@ -32,6 +32,28 @@ export default function Team() {
                       {member.role}
                     </p>
                   ) : null}
+                  {member.certifications?.length ? (
+                    <div className="mt-4 border-t border-slate-200 pt-4">
+                      <p className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-[#b98310]">
+                        Certifications
+                      </p>
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {member.certifications.map((certification) => (
+                          <span
+                            key={`${member.name}-${certification.name}`}
+                            className={`inline-flex items-center rounded-full border px-3 py-1.5 text-xs font-semibold tracking-[0.08em] ${
+                              certification.status === "expired"
+                                ? "border-amber-200 bg-amber-50 text-amber-700"
+                                : "border-[#dbe8f4] bg-[#f5f9ff] text-[#0f5db8]"
+                            }`}
+                          >
+                            {certification.name}
+                            {certification.status === "expired" ? " - expired" : ""}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ) : null}
                 </article>
               </Reveal>
             ))}

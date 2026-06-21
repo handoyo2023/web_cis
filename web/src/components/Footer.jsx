@@ -6,11 +6,11 @@ export default function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-12 lg:grid-cols-[1.1fr_0.7fr_0.7fr] lg:px-8">
         <div>
           <div className="flex items-center gap-3">
-            <div className="flex h-[4.1rem] w-[4.1rem] items-center justify-center rounded-full bg-white">
+            <div className="flex h-[5rem] w-[5rem] items-center justify-center overflow-hidden rounded-full bg-white shadow-lg">
               <img
                 src="/assets/cis-logo-new.png"
                 alt="CIS"
-                className="h-[4.4rem] w-[4.4rem] object-contain scale-[1.14]"
+                className="h-[6.35rem] w-[6.35rem] max-w-none object-contain scale-[1.22]"
               />
             </div>
             <div>

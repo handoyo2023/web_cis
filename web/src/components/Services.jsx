@@ -8,7 +8,7 @@ export default function Services() {
   return (
     <section id="layanan" className="section-divider section-shell">
       <SectionHeader
-        eyebrow="Services"
+        eyebrow=""
         title="Tiga area layanan utama CIS"
         description=""
       />
@@ -55,8 +55,12 @@ function ServiceCard({ service, reversed }) {
                 <Icon size={24} />
               </div>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#b98310]">{service.eyebrow}</p>
-                <h3 className="mt-1 text-2xl font-semibold leading-tight text-[#0b2148] md:text-[2rem]">{service.title}</h3>
+                {service.eyebrow ? (
+                  <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#b98310]">{service.eyebrow}</p>
+                ) : null}
+                <h3 className={`${service.eyebrow ? "mt-1" : ""} text-2xl font-semibold leading-tight text-[#0b2148] md:text-[2rem]`}>
+                  {service.title}
+                </h3>
               </div>
             </div>
 

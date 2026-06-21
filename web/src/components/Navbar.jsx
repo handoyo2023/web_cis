@@ -22,20 +22,22 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 lg:px-8">
-        <a href="#beranda" className="flex items-center gap-3">
-          <div className="flex h-[4.7rem] w-[4.7rem] items-center justify-center rounded-full bg-white/92 shadow-lg">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-5 py-3 lg:px-8">
+        <a href="#beranda" className="flex min-w-0 items-center gap-3">
+          <div className="flex h-[5.2rem] w-[5.2rem] shrink-0 items-center justify-center overflow-hidden rounded-full bg-white/92 shadow-lg lg:h-[6.2rem] lg:w-[6.2rem]">
             <img
               src="/assets/cis-logo-new.png"
               alt="CIS"
-              className="h-[4.95rem] w-[4.95rem] object-contain scale-[1.16]"
+              className="h-[6.6rem] w-[6.6rem] max-w-none translate-x-[0.16rem] object-contain scale-[1.22] lg:h-[7.8rem] lg:w-[7.8rem] lg:translate-x-[0.18rem] lg:scale-[1.24]"
             />
           </div>
-          <div className="hidden leading-tight text-white sm:block">
-            <strong className="block text-sm font-semibold tracking-[0.18em] text-white/70">
+          <div className="min-w-0 leading-tight text-white">
+            <strong className="block text-[0.62rem] font-semibold tracking-[0.2em] text-white/70 sm:text-sm sm:tracking-[0.18em]">
               COLLABORATIVE
             </strong>
-            <span className="block text-base font-semibold">Integrated Solutions</span>
+            <span className="block text-sm font-semibold text-white sm:text-base">
+              Integrated Solutions
+            </span>
           </div>
         </a>
 
@@ -56,7 +58,7 @@ export default function Navbar() {
 
         <button
           type="button"
-          className="inline-flex rounded-full border border-white/15 bg-white/10 p-3 text-white lg:hidden"
+          className="inline-flex shrink-0 rounded-full border border-white/15 bg-white/10 p-3 text-white lg:hidden"
           onClick={() => setOpen((current) => !current)}
           aria-label="Toggle menu"
         >
