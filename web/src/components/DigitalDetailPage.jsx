@@ -7,6 +7,7 @@ import SectionHeader from "./SectionHeader";
 export default function DigitalDetailPage({ slug }) {
   const page = digitalDetailPages.find((item) => item.slug === slug);
   const [copyState, setCopyState] = useState("copy");
+  const returnTarget = "#service-digital";
 
   const currentUrl = typeof window !== "undefined" ? window.location.href : "";
   const encodedUrl = useMemo(() => encodeURIComponent(currentUrl), [currentUrl]);
@@ -50,7 +51,13 @@ export default function DigitalDetailPage({ slug }) {
 
   const handleReturn = (event) => {
     event.preventDefault();
-    window.location.hash = "#service-digital";
+    window.location.hash = returnTarget;
+    window.setTimeout(() => {
+      document.getElementById(returnTarget.replace("#", ""))?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 80);
   };
 
   return (
@@ -60,7 +67,7 @@ export default function DigitalDetailPage({ slug }) {
           <div className="rounded-[2.2rem] border border-slate-200 bg-white p-6 shadow-[0_28px_70px_rgba(8,25,57,0.08)] md:p-8 lg:p-10">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <a
-                href="#service-digital"
+                href={returnTarget}
                 onClick={handleReturn}
                 className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-[#f8fbff] px-4 py-2 text-sm font-semibold text-[#0b2a66] transition hover:border-[#0f5db8] hover:text-[#0f5db8]"
               >

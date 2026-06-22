@@ -473,9 +473,9 @@ export const serviceBlocks = [
         href: "#/robotics/automotive-manufacturing",
       },
       {
-        title: "Foundry",
+        title: "FnB & Electronic",
         icon: Wrench,
-        href: "#/robotics/foundry",
+        href: "#/robotics/electronic-high-tech",
       },
       {
         title: "Mining, Energy & Heavy Industry",
@@ -483,14 +483,14 @@ export const serviceBlocks = [
         href: "#/robotics/mining-energy-heavy-industry",
       },
       {
-        title: "Food & Beverage",
+        title: "Restaurant & Event",
         icon: PackageCheck,
         href: "#/robotics/food-beverage",
       },
       {
-        title: "Electronic & High-Tech",
+        title: "Foundry",
         icon: Cpu,
-        href: "#/robotics/electronic-high-tech",
+        href: "#/robotics/foundry",
       },
     ],
     impactLabel: "Business Impact We Deliver",
@@ -591,12 +591,12 @@ export const serviceBlocks = [
 ];
 
 export const servicesClosing = {
-  image: "/assets/closing-quote.jpg",
+  image: "/assets/hero-scene-rev6.png",
   imageAlt: "Closing visual layanan CIS",
   eyebrow: "Transform Today. Grow Tomorrow.",
   title: "Transforming Business Through Technology, Systems & Human Capital.",
   note:
-    "Menunda transformasi bukan menghemat biaya, melainkan mengorbankan keunggulan kompetitif setiap hari.",
+    "Menunda transformasi bukan menghemat biaya, melainkan mengorbankan keunggulan setiap hari.",
   ctaTitle: "Mulai Business Process Diagnostic Anda Sekarang.",
   ctaDescription:
     "Dapatkan insight strategis, temukan peluang efisiensi, dan tingkatkan kinerja bisnis Anda dalam waktu singkat.",
@@ -735,7 +735,7 @@ export const roboticsIndustryPages = [
     eyebrow: "Robotics Industry Detail",
     title: "Foundry Robotics",
     icon: Wrench,
-    heroImage: "/assets/manufacturing-scara.png",
+    heroImage: "/assets/robot-foundry-2.png",
     heroAlt: "Contoh otomasi robotik yang relevan untuk area foundry",
     supportImages: [
       "/assets/industry-types.png",
@@ -801,7 +801,7 @@ export const roboticsIndustryPages = [
   {
     slug: "food-beverage",
     eyebrow: "Robotics Industry Detail",
-    title: "Food & Beverage Robotics",
+    title: "Restaurant & Event Robotics",
     icon: PackageCheck,
     heroImage: "/assets/hospitality.png",
     heroAlt: "Contoh service robot pada restoran dan acara",
@@ -835,10 +835,10 @@ export const roboticsIndustryPages = [
   {
     slug: "electronic-high-tech",
     eyebrow: "Robotics Industry Detail",
-    title: "Electronic & High-Tech Robotics",
+    title: "FnB & Electronic Robotics",
     icon: Cpu,
     heroImage: "/assets/cobot.png",
-    heroAlt: "Contoh cobot pada lini elektronik dan high-tech",
+    heroAlt: "Contoh cobot dan automation untuk lini elektronik dan operasional cepat",
     supportImages: [
       "/assets/rpa.png",
       "/assets/manufacturing-scara.png",
@@ -1162,23 +1162,23 @@ export const floatingBadges = [
 
 export const teamMembers = [
   {
-    name: "Dr. Ronald Listio, M.Si., MM., MH., C.Med., CIRP., CILC., CIERM., CIGS., CIFM.",
+    name: "Dr.Ronald L G, M.Si, MM, MH, C.MED, CIRP, CIERM, CILC, CIFM, CIGS",
     role: "Chairman of the Board",
   },
   { name: "H Wibowo, A.Md.T" ,    role: "President Director", },
  { name: "S Bratakusuma SE, MAk. CRP, CAFM"  ,    role: "Director of Finance Risk and Audit Governance", },
   { name: "Edy San Long Lest, Aj. Ak, SE, MM"  ,    role: "Director of Finance, Accounting & Tax", },
-    { name: "H. Gunawan, MMktg" ,    role: "Director of Strategic Communication",  },
-      { name: "Iwan Kurniawan, A.Md.T , COP" ,    role: "Director of Industrial Automation & Technology Transformation",  },
+    { name: "H. Goenawan, MMktg" ,    role: "Director of Strategic Communication",  },
+      { name: "P Iwan Kurniawan, A.Md.T , COP" ,    role: "Director of Industrial Automation & Technology Transformation",  },
   { name: "Helmi F Wandara, S.Mn., Askom, CMT BNSP, CPHCM, HRBP, CCP, CFP" ,    role: "Director of Learning & Business Transformation",  },
  
   { name: "A Kusuma L, S.Kom, FLMI, AFSI, ACS, ARA" ,    role: "Application & Control General Manager",  },
   {
-    name: "H Muamar, A.Md.T ,PRG BNSP, CCNA",
+    name: "Muamar H, A.Md.T ,PRG BNSP, CCNA",
     role: "IT & Cyber Dev General Manager", 
   },
   { name: "Cynthia, S.I.Kom"  ,    role: "Business Operations General Manager", },
   { name: "Atika, S.I.Kom"  ,    role: "Head of Operational Excellence", },
-  { name: "Michella, S.H"  ,    role: "Head of Integrated Operations", },
-  { name: "Vena Pratiwi Eka Putri, A.Md.T., SAP Cert.", role: "Operation & Consulting Analyst", },
+  { name: "Theresia M., SH"  ,    role: "Head of Integrated Operations", },
+  { name: "Vena Pratiwi E P, A.Md.T., SAP Cert." ,    role: "Operation & Consulting Analyst", },
 ];
