@@ -27,7 +27,7 @@ export default function WhyCIS() {
           <img
             src="/assets/why-scene-rev6.png"
             alt="Why CIS visual from CIS COMPRO rev 6"
-            className="h-full min-h-[320px] w-full object-cover object-center"
+            className="h-[260px] w-full bg-[#e7eef8] object-contain object-center p-3 sm:h-[320px] sm:p-4 lg:h-full lg:min-h-[320px] lg:object-cover lg:p-0"
           />
         </div>
       </div>

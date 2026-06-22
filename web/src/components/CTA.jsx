@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Reveal from "./Reveal";
+import ServiceImageFrame from "./ServiceImageFrame";
 
 const initialForm = {
   nama: "",
@@ -29,11 +30,12 @@ export default function CTA() {
             <p className="mt-6 text-lg leading-8 text-slate-200">
               Dapatkan insight strategis, temukan peluang efisiensi, dan tingkatkan kinerja bisnis Anda dalam waktu singkat.
             </p>
-            <div className="mt-8 overflow-hidden rounded-[2rem] border border-white/12 shadow-2xl">
-              <img
-                src="/assets/digital-scene-rev6.png"
+            <div className="mt-8">
+              <ServiceImageFrame
+                src="/assets/meeting.png"
                 alt="Digital transformation visual from CIS COMPRO rev 6"
-                className="h-[220px] w-full object-cover object-center"
+                imageClassName="h-[260px] w-full bg-white object-contain object-top sm:h-[300px] md:h-[390px]"
+                outerClassName="border-white/12 shadow-2xl"
               />
             </div>
             <div className="mt-8 grid gap-4 md:grid-cols-2">

@@ -7,8 +7,8 @@ export default function Team() {
   return (
     <section id="tim" className="section-divider section-shell">
       <SectionHeader
-        eyebrow="Member Team"
-        title="CIS Team Directory"
+        eyebrow=""
+        title="CIS Principal Experts & Leadership"
       />
 
       <div className="mt-14 overflow-hidden rounded-[2.3rem] border border-slate-200 bg-white shadow-[0_26px_65px_rgba(8,25,57,0.08)]">

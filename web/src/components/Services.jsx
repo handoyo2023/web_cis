@@ -1,10 +1,29 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Reveal from "./Reveal";
+import ServiceImageFrame from "./ServiceImageFrame";
 import SectionHeader from "./SectionHeader";
 import { serviceBlocks } from "../data";
 
 export default function Services() {
+  const serviceHighlights = [
+    {
+      title: serviceBlocks[0].title,
+      href: "#service-robotics",
+      icon: serviceBlocks[0].icon,
+    },
+    {
+      title: serviceBlocks[1].title,
+      href: "#service-digital",
+      icon: serviceBlocks[1].icon,
+    },
+    {
+      title: serviceBlocks[2].title,
+      href: "#service-human-capital",
+      icon: serviceBlocks[2].icon,
+    },
+  ];
+
   return (
     <section id="layanan" className="section-divider section-shell">
       <SectionHeader
@@ -13,10 +32,41 @@ export default function Services() {
         description=""
       />
 
+      <Reveal className="mt-10">
+        <div className="grid gap-5">
+          {serviceHighlights.map((item) => {
+            const Icon = item.icon;
+
+            return (
+            <a
+              key={item.title}
+              href={item.href}
+              className="group block rounded-[2rem] border border-slate-200 bg-white p-4 shadow-[0_24px_60px_rgba(8,25,57,0.08)] transition duration-300 hover:-translate-y-1 hover:border-[#d4dfef] hover:shadow-[0_28px_72px_rgba(8,25,57,0.12)]"
+            >
+              <div className="rounded-[1.6rem] border border-[#e7eef8] bg-[linear-gradient(180deg,#ffffff,#fbfdff)] px-5 py-6 sm:px-7">
+                <div className="flex items-start gap-4 sm:items-center">
+                  <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,#0b2a66,#1749a1)] text-[#f0c45a] shadow-[0_16px_30px_rgba(11,42,102,0.18)]">
+                    <Icon size={22} strokeWidth={2} />
+                  </div>
+                  <h3 className="max-w-4xl text-xl font-semibold leading-tight text-[#0b2148] transition group-hover:text-[#123c7f] sm:text-[2rem]">
+                    {item.title}
+                  </h3>
+                </div>
+              </div>
+            </a>
+            );
+          })}
+        </div>
+      </Reveal>
+
       <div className="mt-14 space-y-8">
         {serviceBlocks.map((service, index) => (
           <Reveal key={service.title}>
-            <ServiceCard service={service} reversed={index % 2 === 1} />
+            <ServiceCard
+              service={service}
+              reversed={index % 2 === 1}
+              anchorId={["service-robotics", "service-digital", "service-human-capital"][index]}
+            />
           </Reveal>
         ))}
       </div>
@@ -24,12 +74,17 @@ export default function Services() {
   );
 }
 
-function ServiceCard({ service, reversed }) {
+function ServiceCard({ service, reversed, anchorId }) {
   const Icon = service.icon;
   const [pointer, setPointer] = useState({ x: 50, y: 50 });
+  const imageClass =
+    service.imageFit === "object-cover"
+      ? `w-full bg-white ${service.imageHeightClass ?? "h-[260px] md:h-[360px]"} object-contain object-center p-2 sm:p-3 md:p-0 md:object-cover ${service.imagePosition ?? "object-center"}`
+      : `w-full bg-white ${service.imageHeightClass ?? "h-[260px] md:h-[360px]"} ${service.imageFit ?? "object-contain"} ${service.imagePosition ?? "object-center"}`;
 
   return (
     <motion.article
+      id={anchorId}
       whileHover={{ y: -4 }}
       onMouseMove={(event) => {
         const rect = event.currentTarget.getBoundingClientRect();
@@ -37,7 +92,7 @@ function ServiceCard({ service, reversed }) {
         const y = ((event.clientY - rect.top) / rect.height) * 100;
         setPointer({ x, y });
       }}
-      className="group relative overflow-hidden rounded-[2.2rem] border border-slate-200 bg-white p-5 shadow-[0_28px_70px_rgba(8,25,57,0.08)] md:p-7 lg:p-8"
+      className="group relative scroll-mt-28 overflow-hidden rounded-[2.2rem] border border-slate-200 bg-white p-5 shadow-[0_28px_70px_rgba(8,25,57,0.08)] md:p-7 lg:p-8"
     >
       <motion.div
         aria-hidden="true"
@@ -80,15 +135,11 @@ function ServiceCard({ service, reversed }) {
           </div>
         </div>
 
-        <div className="rounded-[1.9rem] border border-slate-200 bg-[linear-gradient(180deg,#fdfefe,#f5f9ff)] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.75)]">
-          <div className="scene-soft overflow-hidden rounded-[1.45rem] border border-[#d9e3f1] bg-white">
-            <img
-              src={service.image}
-              alt={service.title}
-              className={`h-[280px] w-full bg-white md:h-[360px] ${service.imageFit ?? "object-cover"} ${service.imagePosition ?? "object-center"}`}
-            />
-          </div>
-        </div>
+        <ServiceImageFrame
+          src={service.image}
+          alt={service.title}
+          imageClassName={imageClass}
+        />
       </div>
 
       {service.principles?.length ? (
@@ -97,17 +148,6 @@ function ServiceCard({ service, reversed }) {
           <div className={`mt-5 grid gap-4 ${service.principles.length === 3 ? "xl:grid-cols-3" : "md:grid-cols-2 xl:grid-cols-3"}`}>
             {service.principles.map((item) => (
               <PrincipleCard key={item.title} item={item} />
-            ))}
-          </div>
-        </div>
-      ) : null}
-
-      {service.approach?.length ? (
-        <div className="relative mt-8">
-          <SectionLabel>{service.approachLabel}</SectionLabel>
-          <div className="mt-5 grid gap-4 xl:grid-cols-5">
-            {service.approach.map((step) => (
-              <ApproachCard key={step.title} step={step} />
             ))}
           </div>
         </div>
@@ -129,6 +169,7 @@ function ServiceCard({ service, reversed }) {
           {service.points?.length ? (
             <InfoPanel
               title={service.capabilityLabel ?? "Capabilities"}
+              titleHref={service.capabilityHref}
               items={service.points}
               bulletColor="#0f5db8"
             />
@@ -136,10 +177,22 @@ function ServiceCard({ service, reversed }) {
           {service.secondaryItems?.length ? (
             <InfoPanel
               title={service.secondaryLabel}
+              titleHref={service.secondaryHref}
               items={service.secondaryItems}
               bulletColor="#d39a17"
             />
           ) : null}
+        </div>
+      ) : null}
+
+      {service.compactItems?.length ? (
+        <div className="relative mt-8">
+          <SectionLabel>{service.compactLabel}</SectionLabel>
+          <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+            {service.compactItems.map((item) => (
+              <CompactLinkCard key={item.title} item={item} />
+            ))}
+          </div>
         </div>
       ) : null}
 
@@ -148,17 +201,34 @@ function ServiceCard({ service, reversed }) {
           <SectionLabel>{service.impactLabel}</SectionLabel>
           <div className={`mt-5 grid gap-4 ${service.impactItems.length >= 6 ? "md:grid-cols-2 xl:grid-cols-3" : "md:grid-cols-2 xl:grid-cols-5"}`}>
             {service.impactItems.map((item) => (
-              <div
-                key={item}
-                className="rounded-[1.45rem] border border-slate-200 bg-[linear-gradient(180deg,#ffffff,#fbfdff)] px-5 py-4 text-center shadow-sm"
-              >
-                <p className="text-sm font-semibold leading-6 text-[#12385f]">{item}</p>
-              </div>
+              <ImpactCard key={typeof item === "string" ? item : item.title} item={item} />
             ))}
           </div>
         </div>
       ) : null}
     </motion.article>
+  );
+}
+
+function CompactLinkCard({ item }) {
+  const Icon = item.icon;
+  const content = (
+    <div className="flex h-full flex-col items-center justify-center gap-4 rounded-[1.55rem] border border-slate-200 bg-[linear-gradient(180deg,#ffffff,#fbfdff)] px-5 py-7 text-center shadow-sm transition group-hover:border-[#d5e0f1] group-hover:bg-white">
+      <div className="inline-flex h-16 w-16 items-center justify-center rounded-full border border-[#f1d287] bg-[linear-gradient(180deg,#fffdf5,#fff7dc)] text-[#c98b11] shadow-[0_14px_26px_rgba(201,139,17,0.14)]">
+        <Icon size={28} strokeWidth={1.9} />
+      </div>
+      <p className="text-sm font-semibold uppercase leading-6 tracking-[0.08em] text-[#12385f]">{item.title}</p>
+    </div>
+  );
+
+  if (!item.href) {
+    return content;
+  }
+
+  return (
+    <a href={item.href} className="group block">
+      {content}
+    </a>
   );
 }
 
@@ -201,23 +271,6 @@ function PrincipleCard({ item }) {
   );
 }
 
-function ApproachCard({ step }) {
-  const Icon = step.icon;
-
-  return (
-    <motion.div whileHover={{ y: -4 }} className="rounded-[1.6rem] border border-slate-200 bg-white px-5 py-5 shadow-sm">
-      <div className="flex items-center justify-between gap-4">
-        <span className="text-[2rem] font-bold leading-none text-[#d39a17]">{step.number}</span>
-        <div className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#0b2a66] text-white shadow-md">
-          <Icon size={24} />
-        </div>
-      </div>
-      <h4 className="mt-4 text-lg font-semibold leading-7 text-[#0b2148]">{step.title}</h4>
-      <p className="mt-3 text-sm leading-7 text-slate-600">{step.description}</p>
-    </motion.div>
-  );
-}
-
 function CapabilityCard({ item }) {
   const Icon = item.icon;
 
@@ -248,19 +301,97 @@ function CapabilityCard({ item }) {
   );
 }
 
-function InfoPanel({ title, items, bulletColor }) {
+function ImpactCard({ item }) {
+  const isObject = typeof item === "object" && item !== null;
+  const Icon = isObject ? item.icon : null;
+  const title = isObject ? item.title : item;
+
+  return (
+    <motion.div
+      whileHover={{ y: -4 }}
+      className="rounded-[1.45rem] border border-slate-200 bg-[linear-gradient(180deg,#ffffff,#fbfdff)] px-5 py-5 text-center shadow-sm"
+    >
+      {Icon ? (
+        <div className="mx-auto inline-flex h-16 w-16 items-center justify-center rounded-full border border-[#f1d287] bg-[linear-gradient(180deg,#fffdf5,#fff7dc)] text-[#c98b11] shadow-[0_14px_26px_rgba(201,139,17,0.14)]">
+          <Icon size={30} strokeWidth={1.9} />
+        </div>
+      ) : null}
+      <p className={`${Icon ? "mt-4" : ""} text-sm font-semibold leading-6 text-[#12385f]`}>{title}</p>
+    </motion.div>
+  );
+}
+
+function InfoPanel({ title, titleHref, items, bulletColor }) {
   return (
     <div className="rounded-[1.65rem] border border-slate-200 bg-[linear-gradient(180deg,#ffffff,#fbfdff)] p-6 shadow-sm">
-      <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#0f5db8]">{title}</p>
+      {titleHref ? (
+        <a
+          href={titleHref}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#0f5db8] transition hover:text-[#0b2a66]"
+        >
+          {title}
+          <span className="text-[0.65rem] tracking-[0.2em]">VIEW DETAILS</span>
+        </a>
+      ) : (
+        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#0f5db8]">{title}</p>
+      )}
       <div className="mt-5 space-y-4">
         {items.map((item) => (
-          <div key={item} className="flex items-start gap-3">
-            <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full" style={{ background: bulletColor }} />
-            <p className="text-sm font-semibold leading-6 text-[#12385f]">{item}</p>
-          </div>
+          <InfoItem
+            key={typeof item === "string" ? item : item.title}
+            item={item}
+            bulletColor={bulletColor}
+          />
         ))}
       </div>
     </div>
+  );
+}
+
+function InfoItem({ item, bulletColor }) {
+  const isObject = typeof item === "object" && item !== null;
+  const Icon = isObject ? item.icon : null;
+  const title = isObject ? item.title : item;
+  const description = isObject ? item.description : "";
+  const href = isObject ? item.href : "";
+  const hideIcon = isObject ? item.hideIcon : false;
+
+  const content = (
+    <div className="flex items-start gap-3">
+      {Icon && !hideIcon ? (
+        <div
+          className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#f3dca2] bg-[#fffaf0] text-[#c98b11]"
+        >
+          <Icon size={18} strokeWidth={2} />
+        </div>
+      ) : (
+        <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full" style={{ background: bulletColor }} />
+      )}
+      <div className="min-w-0">
+        <p className="text-sm font-semibold leading-6 text-[#12385f]">{title}</p>
+        {description ? <p className="mt-1 text-sm leading-6 text-slate-500">{description}</p> : null}
+      </div>
+    </div>
+  );
+
+  if (!href) {
+    return content;
+  }
+
+  return (
+    <a
+      href={href}
+      className="group block rounded-[1.2rem] border border-transparent px-2 py-2 transition hover:border-[#d9e4f4] hover:bg-white"
+    >
+      <div className="flex items-start justify-between gap-3">
+        {content}
+        <span className="pt-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#0f5db8] transition group-hover:text-[#0b2a66]">
+          View Details
+        </span>
+      </div>
+    </a>
   );
 }
 

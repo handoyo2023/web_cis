@@ -67,7 +67,7 @@ export default function Experience() {
         <img
           src="/assets/experience-scene-rev6.png"
           alt="Proven multi industry experience visual from CIS COMPRO rev 6"
-          className="h-full min-h-[280px] w-full object-cover object-center sm:min-h-[320px]"
+          className="h-[260px] w-full bg-[#eef4fb] object-contain object-center p-3 sm:h-[320px] sm:p-4 md:h-full md:min-h-[320px] md:object-cover md:p-0"
         />
       </Reveal>
 
@@ -115,7 +115,7 @@ export default function Experience() {
                 <img
                   src={industry.image}
                   alt={industry.alt}
-                  className="h-full w-full object-cover object-top"
+                  className="h-[220px] w-full bg-white object-contain object-center p-3 sm:h-full sm:object-cover sm:object-top sm:p-0"
                 />
               </article>
             </Reveal>

@@ -35,7 +35,7 @@ export default function ExecutiveOverview() {
                 <img
                   src="/assets/overview-scene-rev6.png"
                   alt="Executive overview visual from CIS COMPRO rev 6"
-                  className="aspect-[531/286] w-full object-contain object-center"
+                  className="aspect-[1420/477] w-full object-cover object-center"
                 />
               </div>
             </div>
