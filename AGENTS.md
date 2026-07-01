@@ -95,6 +95,11 @@ Panduan kerja untuk agent di proyek `cis`.
 - Gunakan komentar kode hanya jika membantu menjelaskan logika yang tidak langsung jelas.
 - Pertahankan gaya bahasa, naming, dan struktur file yang sudah ada di sekitar perubahan.
 - Untuk konten situs CIS, gunakan nada profesional, jelas, dan korporat.
+- Untuk copy website corporate, utamakan teks yang ringkas, business-facing, dan langsung ke nilai/isi utama. Hindari teks meta atau penjelasan proses kerja internal seperti "halaman ini mengikuti pola", "relevansi materi", "aset diadaptasi dari", atau narasi lain yang terasa overthinking dan tidak relevan bagi pengunjung akhir.
+- Jika visual sudah cukup menjelaskan, jangan menambah paragraf penjelas yang hanya mengulang atau menjelaskan maksud desain. Lebih baik pakai judul yang kuat, points singkat, dan CTA yang jelas.
+- Untuk section seperti Robotics dan Digital Transformation yang mengikuti pola PPT, halaman utama harus tetap ringkas: tampilkan judul, icon, dan titik masuk utama saja. Penjelasan rinci dipisah ke halaman detail.
+- Untuk knowledge yang dibutuhkan agent/chatbot, simpan detail penjelasan di `KNOWLEDGE.md` dan mapping link publik di folder `hermes/`, bukan ditumpuk di UI halaman utama.
+- Jika item di halaman utama bisa diklik ke detail, prioritaskan pola image-led sederhana pada halaman detail dan hindari menambah blok teks panjang yang tidak diminta.
 
 ## Goal Codex
 

@@ -166,11 +166,11 @@ function ServiceCard({ service, reversed, anchorId }) {
 
       {!service.capabilityCards?.length && (service.points?.length || service.secondaryItems?.length) ? (
         <div className={`relative mt-8 grid gap-5 ${service.secondaryItems?.length ? "xl:grid-cols-[0.72fr_1.28fr]" : ""}`}>
-          {service.points?.length ? (
+          {service.points?.some((item) => !item.hidden) ? (
             <InfoPanel
               title={service.capabilityLabel ?? "Capabilities"}
-              titleHref={service.capabilityHref}
-              items={service.points}
+              titleHref={service.title === "Transforming Operations Through Intelligent Robotics" ? "" : service.capabilityHref}
+              items={service.points.filter((item) => !item.hidden)}
               bulletColor="#0f5db8"
             />
           ) : null}

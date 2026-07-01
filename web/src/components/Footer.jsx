@@ -40,7 +40,7 @@ export default function Footer() {
           <div className="mt-5 space-y-3 text-slate-300">
             <p>support@ciscorp.co.id</p>
             <p>Telp :(021)3951 6622</p>
-            <p>WhatsApp: +6282317907380</p>
+            <p>WhatsApp: +62 851 9939 0093</p>
             <p>
               APL Tower Central Park Lt. 26 Unit 05
               <br />

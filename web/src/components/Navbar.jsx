@@ -14,10 +14,17 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const isDetailPage =
+    typeof window !== "undefined" &&
+    (window.location.hash.startsWith("#/robotics/") ||
+      window.location.hash.startsWith("#/digital/") ||
+      window.location.hash.startsWith("#/human-capital/"));
+  const useSolidNavbar = scrolled || isDetailPage;
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
+        useSolidNavbar
           ? "border-b border-white/15 bg-[#061a3fcc]/90 shadow-[0_18px_60px_rgba(5,16,40,0.26)] backdrop-blur-xl"
           : "bg-transparent"
       }`}

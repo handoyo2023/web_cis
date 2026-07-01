@@ -435,6 +435,7 @@ export const serviceBlocks = [
         description: "Transportasi internal dan material handling yang lebih adaptif dan scalable.",
         icon: Truck,
         href: "#/robotics/amr-material-handling",
+        hidden: true,
       },
       {
         title: "Industrial Robotics",
@@ -630,7 +631,7 @@ export const servicesClosing = {
 export const roboticsIndustryPages = [
   {
     slug: "healthcare-hospitality",
-    eyebrow: "Robotics Industry Detail",
+    eyebrow: "ADVISORY / CONSULTING AREA",
     title: "Healthcare & Hospitality Robotics",
     icon: HeartPulse,
     heroImage: "/assets/healthcare.png",
@@ -638,6 +639,15 @@ export const roboticsIndustryPages = [
     supportImages: [
       "/assets/hospitality.png",
       "/assets/amr-agv.png",
+    ],
+    advisorySummary:
+      "Mendampingi transformasi operasional untuk meningkatkan efisiensi dan konsistensi layanan, dengan pendekatan terintegrasi antara proses, teknologi, dan standar service excellence.",
+    problemTitle: "Inconsistent Service Quality & High Operational Dependency on Manpower",
+    problemPoints: [
+      "Ketergantungan tinggi pada tenaga kerja untuk aktivitas repetitif",
+      "Variasi kualitas layanan antar shift dan operator",
+      "Proses operasional tidak terstandarisasi",
+      "Waktu respon layanan tidak konsisten",
     ],
     overview: [
       "Robot pengantar, robot pembawa, dan robot pengangkut membantu material movement di area rumah sakit, hotel, dan fasilitas layanan.",
@@ -664,7 +674,7 @@ export const roboticsIndustryPages = [
   },
   {
     slug: "warehouse-retail-ecommerce",
-    eyebrow: "Robotics Industry Detail",
+    eyebrow: "ADVISORY / CONSULTING AREA",
     title: "Warehouse, Retail & E-Commerce Robotics",
     icon: Truck,
     heroImage: "/assets/retail-logistics.png",
@@ -672,6 +682,15 @@ export const roboticsIndustryPages = [
     supportImages: [
       "/assets/amr-agv.png",
       "/assets/rpa.png",
+    ],
+    advisorySummary:
+      "Mengoptimalkan aliran barang dan operasi fulfillment melalui pendekatan berbasis data dan automation strategy untuk meningkatkan kecepatan, akurasi, dan skalabilitas.",
+    problemTitle: "Slow Fulfillment, High Error Rate & Inefficient Material Flow",
+    problemPoints: [
+      "Proses picking dan movement masih manual dan lambat",
+      "Tingginya human error dalam inventory dan order fulfillment",
+      "Bottleneck saat peak demand (order spike)",
+      "Alur material dan layout gudang tidak optimal",
     ],
     overview: [
       "AMR forklift, pallet jack, picking AMR, dan sorting robot membantu pergerakan material yang cepat dan terukur.",
@@ -698,7 +717,7 @@ export const roboticsIndustryPages = [
   },
   {
     slug: "automotive-manufacturing",
-    eyebrow: "Robotics Industry Detail",
+    eyebrow: "ADVISORY / CONSULTING AREA",
     title: "Automotive & Manufacturing Robotics",
     icon: Factory,
     heroImage: "/assets/manufacturing-arm.png",
@@ -706,6 +725,15 @@ export const roboticsIndustryPages = [
     supportImages: [
       "/assets/manufacturing-scara.png",
       "/assets/cobot.png",
+    ],
+    advisorySummary:
+      "Mengidentifikasi bottleneck operasional dan merancang roadmap transformasi untuk meningkatkan produktivitas, stabilitas produksi, dan efisiensi secara berkelanjutan.",
+    problemTitle: "Production Bottleneck, Line Imbalance & Limited Scalability",
+    problemPoints: [
+      "Bottleneck pada proses tertentu dalam line produksi",
+      "Ketidakseimbangan antar proses (line balancing issue)",
+      "Delay akibat proses manual dan handling tidak efisien",
+      "Sulit meningkatkan kapasitas saat demand naik",
     ],
     overview: [
       "Industrial robot mendukung picking, dispensing, welding, assembly, palletizing, dan material handling.",
@@ -732,7 +760,7 @@ export const roboticsIndustryPages = [
   },
   {
     slug: "foundry",
-    eyebrow: "Robotics Industry Detail",
+    eyebrow: "ADVISORY / CONSULTING AREA",
     title: "Foundry Robotics",
     icon: Wrench,
     heroImage: "/assets/robot-foundry-2.png",
@@ -740,6 +768,15 @@ export const roboticsIndustryPages = [
     supportImages: [
       "/assets/industry-types.png",
       "/assets/physical-categories.png",
+    ],
+    advisorySummary:
+      "Meningkatkan kontrol kualitas dan stabilitas proses melalui optimalisasi operasi dan integrasi teknologi pada lingkungan produksi dengan variabilitas tinggi.",
+    problemTitle: "High Defect Rate & Unstable Production in Extreme Conditions",
+    problemPoints: [
+      "Variabilitas tinggi dalam proses produksi",
+      "Defect rate tinggi (porosity, inconsistency)",
+      "Ketergantungan pada skill operator",
+      "Risiko tinggi dalam handling material panas",
     ],
     overview: [
       "Foundry membutuhkan robotik yang tangguh untuk handling, finishing, transfer material, dan support inspection.",
@@ -766,14 +803,23 @@ export const roboticsIndustryPages = [
   },
   {
     slug: "mining-energy-heavy-industry",
-    eyebrow: "Robotics Industry Detail",
+    eyebrow: "ADVISORY / CONSULTING AREA",
     title: "Mining, Energy & Heavy Industry Robotics",
     icon: Wrench,
-    heroImage: "/assets/military-defense.png",
-    heroAlt: "Contoh visual robotik untuk lingkungan operasi berat dan berisiko tinggi",
+    heroImage: "/assets/mining.png",
+    heroAlt: "Contoh visual robotik untuk operasi mining, energy, dan heavy industry",
     supportImages: [
       "/assets/transformation.png",
       "/assets/amr-agv.png",
+    ],
+    advisorySummary:
+      "Meningkatkan reliability dan safety operasional melalui optimalisasi proses kritikal dan integrasi teknologi dalam lingkungan industri yang kompleks.",
+    problemTitle: "High Safety Risk & Low Visibility in Critical Operations",
+    problemPoints: [
+      "Risiko keselamatan tinggi di area operasional",
+      "Banyak proses dilakukan di environment berbahaya",
+      "Monitoring dan kontrol tidak real-time",
+      "Ketergantungan pada inspeksi manual",
     ],
     overview: [
       "Industri berat memerlukan kombinasi robot fisik, mobile robot, dan digital automation untuk operasi yang menuntut keselamatan tinggi.",
@@ -800,7 +846,7 @@ export const roboticsIndustryPages = [
   },
   {
     slug: "food-beverage",
-    eyebrow: "Robotics Industry Detail",
+    eyebrow: "ADVISORY / CONSULTING AREA",
     title: "Restaurant & Event Robotics",
     icon: PackageCheck,
     heroImage: "/assets/hospitality.png",
@@ -808,6 +854,15 @@ export const roboticsIndustryPages = [
     supportImages: [
       "/assets/cobot.png",
       "/assets/amr-agv.png",
+    ],
+    advisorySummary:
+      "Menyederhanakan workflow operasional dan meningkatkan service delivery melalui digitalisasi dan pendekatan efisiensi proses yang terukur.",
+    problemTitle: "Service Inconsistency & Operational Breakdown During Peak Hours",
+    problemPoints: [
+      "Ketergantungan tinggi pada tenaga kerja operasional",
+      "Service tidak konsisten antar shift",
+      "Delay saat peak hour atau event besar",
+      "Koordinasi antar tim tidak optimal",
     ],
     overview: [
       "Service robot dapat mendukung food delivery, bussing, guest assistance, dan event operation.",
@@ -834,14 +889,23 @@ export const roboticsIndustryPages = [
   },
   {
     slug: "electronic-high-tech",
-    eyebrow: "Robotics Industry Detail",
+    eyebrow: "ADVISORY / CONSULTING AREA",
     title: "FnB & Electronic Robotics",
     icon: Cpu,
-    heroImage: "/assets/cobot.png",
-    heroAlt: "Contoh cobot dan automation untuk lini elektronik dan operasional cepat",
+    heroImage: "/assets/manufacturing-scara.png",
+    heroAlt: "Contoh otomasi robotik untuk operasional FnB dan electronic",
     supportImages: [
       "/assets/rpa.png",
       "/assets/manufacturing-scara.png",
+    ],
+    advisorySummary:
+      "Menyelaraskan proses produksi dan operasional agar lebih konsisten, efisien, dan adaptif terhadap perubahan demand melalui pendekatan integrasi sistem dan automation.",
+    problemTitle: "Inconsistent Product Quality & High Process Variability",
+    problemPoints: [
+      "Variasi kualitas akibat proses manual",
+      "Tingginya reject dan rework",
+      "Ketergantungan tinggi pada operator",
+      "Proses handling dan transfer tidak efisien",
     ],
     overview: [
       "Cobot, scara, dan workstation automation cocok untuk assembly presisi, inspection, dan handling komponen sensitif.",

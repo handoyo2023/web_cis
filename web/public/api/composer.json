@@ -1,0 +1,7 @@
+{
+  "name": "cis/contact-api",
+  "description": "Hostinger contact form mailer for CIS website",
+  "require": {
+    "phpmailer/phpmailer": "^6.10"
+  }
+}

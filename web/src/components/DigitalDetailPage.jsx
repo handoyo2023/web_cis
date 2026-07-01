@@ -1,5 +1,5 @@
 import { ArrowLeft, Link2, MessageCircle, Send } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { digitalCorePrinciples, digitalDetailPages, digitalStatement } from "../data";
 import Reveal from "./Reveal";
 import SectionHeader from "./SectionHeader";
@@ -8,6 +8,7 @@ export default function DigitalDetailPage({ slug }) {
   const page = digitalDetailPages.find((item) => item.slug === slug);
   const [copyState, setCopyState] = useState("copy");
   const returnTarget = "#service-digital";
+  const mainRef = useRef(null);
 
   const currentUrl = typeof window !== "undefined" ? window.location.href : "";
   const encodedUrl = useMemo(() => encodeURIComponent(currentUrl), [currentUrl]);
@@ -15,6 +16,17 @@ export default function DigitalDetailPage({ slug }) {
     () => encodeURIComponent(page ? `${page.title} - CIS Digital Transformation` : "CIS Digital Transformation Detail"),
     [page],
   );
+
+  useEffect(() => {
+    if (!page) {
+      return;
+    }
+
+    window.requestAnimationFrame(() => {
+      mainRef.current?.scrollIntoView({ behavior: "auto", block: "start" });
+      mainRef.current?.focus({ preventScroll: true });
+    });
+  }, [page]);
 
   if (!page) {
     return (
@@ -61,7 +73,7 @@ export default function DigitalDetailPage({ slug }) {
   };
 
   return (
-    <main className="section-shell pt-34 md:pt-38">
+    <main ref={mainRef} tabIndex={-1} className="section-shell pt-34 outline-none md:pt-38">
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <div className="rounded-[2.2rem] border border-slate-200 bg-white p-6 shadow-[0_28px_70px_rgba(8,25,57,0.08)] md:p-8 lg:p-10">

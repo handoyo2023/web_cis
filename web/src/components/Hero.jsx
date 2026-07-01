@@ -84,8 +84,8 @@ export default function Hero() {
               Lihat Keahlian Kami
             </a>
             <a
-              href="/assets/cis-compro-rev-6.pdf"
-              download="CIS-COMPRO-rev-6.pdf"
+              href="/assets/cis-compro-finaly.pdf"
+              download="CIS COMPRO - FINALY.pdf"
               className="inline-flex items-center gap-2 rounded-full border border-[#f0c45a]/35 bg-[#0a2444]/50 px-6 py-3.5 text-sm font-semibold text-[#f6d27f] transition hover:-translate-y-0.5 hover:border-[#f0c45a] hover:bg-[#0d2b63]"
             >
               Download Compro

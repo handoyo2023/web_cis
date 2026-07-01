@@ -12,12 +12,36 @@ const initialForm = {
 
 export default function CTA() {
   const [form, setForm] = useState(initialForm);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("CIS contact form:", form);
-    window.alert("Terima kasih. Tim CIS akan segera menghubungi Anda.");
-    setForm(initialForm);
+    setIsSubmitting(true);
+    setSubmitMessage("");
+
+    try {
+      const response = await fetch("/api/contact.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.ok) {
+        throw new Error(result.message || "Terjadi kendala saat mengirim permintaan konsultasi.");
+      }
+
+      setSubmitMessage("Terima kasih. Permintaan konsultasi Anda berhasil dikirim ke support@ciscorp.co.id, dan salinannya juga sudah dikirim ke email Anda.");
+      setForm(initialForm);
+    } catch (error) {
+      setSubmitMessage(error.message || "Terjadi kendala saat mengirim permintaan konsultasi.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -45,7 +69,7 @@ export default function CTA() {
                 </p>
                 <div className="mt-4 space-y-2 text-base text-slate-200">
                   <p>Email: support@ciscorp.co.id</p>
-                  <p>WhatsApp: +6282317907380</p>
+                  <p>WhatsApp: +62 851 9939 0093</p>
                   <p>Telp :(021)3951 6622</p>
                   <p>
                     APL Tower Central Park Lt. 26 Unit 05
@@ -121,11 +145,17 @@ export default function CTA() {
                   onChange={(event) => setForm({ ...form, kebutuhan: event.target.value })}
                 />
               </label>
+              {submitMessage ? (
+                <p className="rounded-2xl border border-[#d6e1f4] bg-[#f5f9ff] px-4 py-3 text-sm leading-6 text-[#12385f]">
+                  {submitMessage}
+                </p>
+              ) : null}
               <button
                 type="submit"
+                disabled={isSubmitting}
                 className="mt-2 inline-flex justify-center rounded-full bg-[#f0c45a] px-6 py-3.5 text-sm font-semibold text-[#071c40] transition hover:-translate-y-0.5"
               >
-                Jadwalkan Konsultasi
+                {isSubmitting ? "Mengirim..." : "Jadwalkan Konsultasi"}
               </button>
             </form>
           </Reveal>
