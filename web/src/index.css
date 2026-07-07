@@ -54,7 +54,6 @@ textarea {
 
 .hero-shell {
   position: relative;
-  min-height: 640px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 2.5rem;
@@ -115,9 +114,5 @@ textarea {
 @media (max-width: 768px) {
   .section-shell {
     @apply py-16;
-  }
-
-  .hero-shell {
-    min-height: 580px;
   }
 }

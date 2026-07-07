@@ -18,7 +18,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:90px_90px] opacity-35" />
       </div>
 
-      <div className="relative mx-auto grid min-h-screen max-w-7xl items-center gap-16 px-5 pb-20 pt-32 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:pb-24">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-5 pb-16 pt-28 lg:min-h-screen lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:px-8 lg:pb-24 lg:pt-32">
         <div>
 
           <motion.h1
@@ -103,12 +103,12 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="hero-shell"
+            className="hero-shell min-h-0 p-4 sm:p-6 xl:min-h-[640px] xl:p-0"
           >
-            <div className="absolute inset-x-8 top-8 rounded-[2rem] border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(255,255,255,0.05))] p-6 backdrop-blur-xl xl:top-24">
+            <div className="relative rounded-[2rem] border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(255,255,255,0.05))] p-5 backdrop-blur-xl sm:p-6 xl:absolute xl:inset-x-8 xl:top-24">
               <a
                 href="#why-cis"
-                className="inline-flex text-sm font-semibold uppercase tracking-[0.24em] text-[#c5dfff] transition hover:text-[#f0c45a]"
+                className="inline-flex max-w-[14rem] text-xs font-semibold uppercase tracking-[0.24em] text-[#c5dfff] transition hover:text-[#f0c45a] sm:max-w-none sm:text-sm"
               >
                 Integrated Consulting Dashboard
               </a>
