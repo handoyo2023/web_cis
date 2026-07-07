@@ -57,9 +57,9 @@ export default function Hero() {
               </p>
             </div>
             <div className="glass-line rounded-[1.7rem] px-5 py-5">
-              <p className="text-[0.72rem] font-bold uppercase tracking-[0.24em] text-[#b6d5ff]">Fokus pada hasil bisnis yang terukur</p>
+              <p className="text-[0.72rem] font-bold uppercase tracking-[0.24em] text-[#b6d5ff]">Solutions</p>
               <p className="mt-3 text-sm leading-6 text-slate-100">
-                Meningkatkan efisiensi, menekan biaya, dan mendorong pertumbuhan berkelanjutan.
+                Fokus pada hasil bisnis yang terukur, Meningkatkan efisiensi, menekan biaya, dan mendorong pertumbuhan berkelanjutan.
               </p>
             </div>
           </motion.div>
